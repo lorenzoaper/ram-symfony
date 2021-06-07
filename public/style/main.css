@@ -1,0 +1,232 @@
+body {
+    background-color: #457B9D;
+    font-family: 'Raleway', sans-serif;
+    color: #E5F0FF;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-weight: 800;
+}
+
+h4 {
+    font-weight: 600;
+}
+
+p {
+    text-align: justify;
+    padding: 0% 13%;
+}
+
+.flip-container:hover .flip {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.flip-container {
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -o-perspective: 1000;
+    perspective: 1000;
+    width: 515px;
+}
+
+.flip-container-small {
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -o-perspective: 1000;
+    perspective: 1000;
+    margin-left: 40px;
+    width: 50px;
+}
+
+.flip-container-small:hover .back {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.flip {
+    -webkit-transition: 0.6s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transition: 0.6s;
+    -moz-transform-style: preserve-3d;
+    -o-transition: 0.6s;
+    -o-transform-style: preserve-3d;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.flip3 {
+    -webkit-transition: 0.6s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transition: 0.6s;
+    -moz-transform-style: preserve-3d;
+    -o-transition: 0.6s;
+    -o-transform-style: preserve-3d;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    transform-origin: 100% 300px;
+}
+
+.flip2 {
+    -webkit-transition: 0.6s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transition: 0.6s;
+    -moz-transform-style: preserve-3d;
+    -o-transition: 0.6s;
+    -o-transform-style: preserve-3d;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    transform-origin: 100% 200px;
+}
+
+.front p,
+.back p {
+    text-align: center;
+}
+
+.front,
+.back {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: fixed;
+}
+
+#front {
+    background: #06D6A0;
+}
+
+.front {
+    color: #E5F0FF;
+    width: 500px;
+    height: 315px;
+    border-radius: 4%;
+}
+
+.flip .back {
+    background: #ddd;
+    color: #333;
+    width: 500px;
+    height: 315px;
+    border-radius: 4%;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 90px;
+    height: 50px;
+    background: #06D6A0;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+    left: 46%;
+    top: 265%;
+}
+
+label:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+input:checked+label {
+    background: #D61F06;
+}
+
+input:checked+label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+label:active:after {
+    width: 60px;
+}
+
+.btn {
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 45px;
+    margin: 0 0 2em;
+    max-width: 160px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+@media (min-width: 600px) {
+    .btn {
+        margin: 0 1em 2em;
+    }
+}
+
+.btn:hover {
+    text-decoration: none;
+}
+
+@media (min-width: 600px) {
+    .btn {
+        margin: 0 1em 2em;
+    }
+}
+
+.btn:hover {
+    text-decoration: none;
+}
+
+.btn-4 {
+    border: 1px solid;
+    overflow: hidden;
+    position: relative;
+    top: 240%;
+    left: 42.5%;
+    padding: 0;
+}
+
+.btn-4:after {
+    background: #fff;
+    content: "";
+    height: 155px;
+    left: 42.5%;
+    opacity: 0.2;
+    position: absolute;
+    top: 240px;
+    transform: rotate(35deg);
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 50px;
+    z-index: -10;
+}
+
+.btn-4:hover:after {
+    left: 120%;
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+}

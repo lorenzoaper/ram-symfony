@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
+use App\Entity\Post;
 use App\Repository\PostRepository;
+use Doctrine\ORM\Mapping\Id;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
@@ -15,13 +17,18 @@ class HomeController extends AbstractController
      */
     public function index(PostRepository $postRepo): Response
     {
+        $messages = [];
 
         // $postRepo = $this->getDoctrine()->getRepository(Post::class);
-        $messages = $postRepo->findAll();
+
+        $max = 136;
+        $min = 93;
+
+        $messages = $postRepo->findBy(array('id' => random_int($min, $max)));
+
 
 
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
             "messages" => $messages
         ]);
     }

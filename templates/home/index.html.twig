@@ -1,5 +1,49 @@
-{% extends 'base.html.twig' %}
+{% extends 'home/base.html.twig' %}
 
 {% block title %}Random Access Mood{% endblock %}
 
-{% block body %}{% endblock %}
+{% block body %}
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <div class='container'>
+    <div class="row">
+      <div class="col-12">
+      
+       <p class='text-center'><a type="button" href="/new" style='padding:0;margin:0;font-size:0.8rem;' class="btn btn-primary">Share a message</a></p>
+        
+      </div>
+    </div>
+ {% endif %}
+ 
+  <h4 class="text-center mt-5">Pick a card</h4>
+  <div class="col-md-auto">
+    <div class="container flip-container">
+      <div class="flip">
+        <div id="front" class="front">
+          <p id="cardType" style="margin-top:30%;" class="text-center">Positive message
+          <p>
+        </div>
+        <div class="back">
+          {% for oneMessage in messages %}
+
+           <p style="margin-top:15%;">{{ oneMessage.Message }} <br> {{ oneMessage.Author.username}} </p>
+            
+         
+            {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-12">
+      <!-- <input id="switch" type="checkbox" /><label  for="switch"></label> -->
+      <a href="/" class="mt-5 btn btn-4"><span>Draw</span></a>
+    </div>
+
+  </div>
+ <br>
+ <br>
+
+{% endblock %}
+

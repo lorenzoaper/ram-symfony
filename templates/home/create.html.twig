@@ -3,7 +3,7 @@
 {% block body %}
        <div class="container">
         <form action="{{ path('new') }}" method="post">
-          <input name="msg" class="form-control" placeholder="Add a message" type="text" required>
+          <input name="msg" class="form-control" placeholder="Add a message (>=10 characters)" type="text" required="" autofocus="">
           <p class='text-center mt-5'><button type="submit" style='padding:0;margin:0;' class="btn btn-primary">Send it</button></p>
             <p class='text-center'><a type="button" href="/" style='padding:0;margin:0;font-size:0.8rem;' class="btn btn-primary">Home sweet home</a></p>
         </form>

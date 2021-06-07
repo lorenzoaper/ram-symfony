@@ -131,7 +131,7 @@ input[type=checkbox] {
     visibility: hidden;
 }
 
-label {
+label-1 {
     cursor: pointer;
     text-indent: -9999px;
     width: 90px;
@@ -144,7 +144,7 @@ label {
     top: 265%;
 }
 
-label:after {
+label-1:after {
     content: '';
     position: absolute;
     top: 5px;
@@ -156,16 +156,16 @@ label:after {
     transition: 0.3s;
 }
 
-input:checked+label {
+input:checked+label-1 {
     background: #D61F06;
 }
 
-input:checked+label:after {
+input:checked+label-1:after {
     left: calc(100% - 5px);
     transform: translateX(-100%);
 }
 
-label:active:after {
+label-1:active:after {
     width: 60px;
 }
 

@@ -22,6 +22,11 @@ class Post
      */
     private $message;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="posts")
+     */
+    private $Author;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +40,18 @@ class Post
     public function setMessage(?string $message): self
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->Author;
+    }
+
+    public function setAuthor(?User $Author): self
+    {
+        $this->Author = $Author;
 
         return $this;
     }

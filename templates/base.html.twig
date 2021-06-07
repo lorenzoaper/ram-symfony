@@ -17,13 +17,14 @@
         {%  block header %}
     <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-md-end" id="navbarNavAltMarkup">
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <button type="button" alt="Disconnect" class="btn text-light me-2 mt-3"><a class="nav-link" style="text-decoration:none;color:white;" href="/logout" role="button">Log Out</a></button>
+     <p class="text-light p-0">You are logged as : {{ app.user.username}}</p>
+        <button type="button" alt="Disconnect" class="btn text-light mt-3"><a class="nav-link" style="text-decoration:none;color:white;" href="/logout" role="button">Log Out</a></button>
+       
         {% else %}
     <button type="button" alt="connect" class="btn text-light me-2 mt-3"><a class="nav-link" style="text-decoration:none;color:white;" href="/login" role="button">Log In</a></button>
     <button type="button" alt="inscription" class="btn btn-outline-light me-2 mt-3"><a class="nav-link" style="text-decoration:none;color:white;" href="/register" role="button">Register</a></button>
@@ -37,7 +38,7 @@
  <div class="row">
     <div class="col-12">
     <h1 class="text-center">RANDOM ACCESS MOOD</h1>
-    <p>Some days you will learn something, maybe from someone maybe from your experiences maybe from life. The concept is simple, share this positive attitude, this advice, this mood with us. just like a bottle in the sea, someone will read this.Are you in a bad mood ? it’s ok, no one forced you to be happy we all go through disappointment sometimes, share it too ! Maybe you’ll help someone to understand that there is always worse than we think and maybe their next card will be in the positive desk.</p>
+    <p>Some days you will learn something, maybe from someone maybe from your experiences maybe from life. The concept is simple, share this positive attitude, this advice, this mood with us. just like a bottle in the sea, someone will read this. Maybe you’ll help someone to understand that there is always worse than we think and maybe their days will be better.</p>
     </div>
  </div>
 </header>
@@ -50,8 +51,63 @@
     </head>
     <body>
         {% block body %}
-        
-        
+        <section class="container mt-5">
+ {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <div class="row newMsg">
+      <div class="col">
+
+        <form class="input-group" method="POST" action="/newMsg">
+          <input name="msg" class="form-control" placeholder="Add a message" type="text">
+          <!-- <select name="type" id="">
+
+            <option value="true">Positive</option>
+            <option value="false">Negative</option>
+
+          </select> -->
+          <button type="submit" href="/newMsg" style='padding:0;margin:0;' class="btn btn-primary">Send it</button>
+        </form>
+      </div>
+    </div>
+ {% endif %}
+  <h4 class="text-center mt-5">Pick a card</h4>
+  <div class="row"></div>
+  <div class="col-md-auto">
+    <div class="container flip-container">
+      <div class="flip">
+        <div id="front" class="front">
+          <p id="cardType" style="margin-top:30%;" class="text-center">Positive message
+          <p>
+        </div>
         {% endblock %}
+        <div class="back">
+          
+
+         {# {% for oneMessage in messages %}
+
+          
+
+            <p style="margin-top:22%;"> {{ oneMessage.content }} </p>
+            <p> {{ oneMessage.user.username }} </p>
+
+         {% endfor %} #}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <!-- <input id="switch" type="checkbox" /><label  for="switch"></label> -->
+      <a href="/" class="mt-5 btn btn-4"><span>Draw</span></a>
+    </div>
+
+  </div>
+  <div class="col-12 mt-5"></div>
+</div>
+
+        
     </body>
 </html>

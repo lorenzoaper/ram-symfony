@@ -38,6 +38,7 @@ class AppFixtures extends Fixture
             for ($j = 0; $i < random_int(0, 10); $j++) {
                 $onePost = new Post();
                 $onePost->setMessage($faker->text(255));
+                $onePost->setAuthor($simpleUser);
                 $manager->persist($onePost);
             }
         }

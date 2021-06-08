@@ -20,7 +20,6 @@ class HomeController extends AbstractController
     {
 
         $oneMessage = $postRepo->getRandomMessage();
-        dump($oneMessage);
         $messages = [$oneMessage];
 
         // $postRepo = $this->getDoctrine()->getRepository(Post::class);

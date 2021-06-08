@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Controller\PostController;
 use App\Entity\Post;
 use App\Repository\PostRepository;
 use Doctrine\ORM\Mapping\Id;
@@ -17,14 +18,12 @@ class HomeController extends AbstractController
      */
     public function index(PostRepository $postRepo): Response
     {
-        $messages = [];
+
+        $oneMessage = $postRepo->getRandomMessage();
+        dump($oneMessage);
+        $messages = [$oneMessage];
 
         // $postRepo = $this->getDoctrine()->getRepository(Post::class);
-
-        $max = 136;
-        $min = 93;
-
-        $messages = $postRepo->findBy(array('id' => random_int($min, $max)));
 
 
 

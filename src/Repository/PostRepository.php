@@ -19,22 +19,22 @@ class PostRepository extends ServiceEntityRepository
         parent::__construct($registry, Post::class);
     }
 
-    // /**
-    //  * @return Post[] Returns an array of Post objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return Post Returns one Post object
+     */
+    public function getRandomMessage()
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $numberOfMessage = $this->count([]);
+
+        $randomInt = random_int(0, $numberOfMessage - 1);
+
+        $query = $this->createQueryBuilder('p')
+            ->setMaxResults(1)
+            ->setFirstResult($randomInt)
+            ->getQuery();
+        return $query->getResult()[0];
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Post

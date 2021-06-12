@@ -18,7 +18,7 @@ Random Access Mood is an initative project to help people to feel better. This p
 
 ## DATABASE
 
-With a simple 2 tables database i can link users to post that they will create. The goal was not to control an history of people cards. The username is just here to sign your message, also it's impossible to delete one of theme the purpose of the project is to send a message like a bottle in the ocean.
+With a simple 2 tables database i can link users to posts that they will create. The goal was not to control an history of the users' posts. The username is just here to sign your message, and it's impossible to delete a post. The purpose of the project is like that of sending a message in a bottle.
 
 <p align="center">
 <img src="bdd-concept.png"
@@ -28,7 +28,7 @@ With a simple 2 tables database i can link users to post that they will create. 
 
 ## CONCEPT
 
-You can use the website from two ways.
+You can use the website in two ways.
 
 - Use it to see some of the messages and draw a new card to see a new one.
   <p align="center">
@@ -36,16 +36,16 @@ You can use the website from two ways.
     alt="notlogged"
     width="686" height="289">
   </p>
-- Sign up then access to the possibility to write a card.
+- Sign up then access the possibility to write a card.
   <p align="center">
   <img src="secondway.png"
     alt="logged"
     width="686" height="289">
   </p>
 
-You just have to hover a card to see it, that's it !
+You just have to over a card to see it, that's it !
 
-## How randomise work
+## How randomization works
 
 ```php
 public  function  getRandomMessage(){
@@ -69,7 +69,7 @@ return  $query->getResult()[0];
 
 ## End
 
-If you want to share a card i recomand you to use it now ! Just be positive, it can be a good news in your life, a positive message or a good lesson to learn, just be kind.
+If you want to share a card i recommend you to use it now ! Just be positive, it can be a good news in your life, a positive message or a good lesson to learn, just be kind.
 
 [Random Access Mood ](http://whispering-ravine-34894.herokuapp.com/)
 
